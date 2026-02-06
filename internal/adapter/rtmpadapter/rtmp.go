@@ -74,16 +74,13 @@ func (a *Adapter) OnPublish(ctx context.Context, app, stream string, params map[
 		return false, err
 	}
 
-	// 如果通道禁用了鉴权，直接通过
-	if ch.Config.IsAuthDisabled {
-		return true, nil
-	}
-
-	// 验证签名
-	sign := params["sign"]
-	expectedSign := hook.MD5(a.conf.Server.RTMPSecret)
-	if sign != expectedSign {
-		return false, nil
+	// 如果开启了鉴权
+	if !ch.Config.IsAuthDisabled {
+		sign := params["sign"]
+		expectedSign := hook.MD5(a.conf.Server.RTMPSecret)
+		if sign != expectedSign {
+			return false, nil
+		}
 	}
 
 	// 更新通道推流状态
