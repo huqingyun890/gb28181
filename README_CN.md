@@ -151,6 +151,13 @@ postgres 和 mysql 的格式即:
 
 目前对 onnx 支持最友好
 
+> 播放黑屏，日志提示 zlm 连接不上?
+
+程序会自动识别是否容器中，才会主动启动 zlm，支持 docker/containerd/podman 等，如果确实没有拉起来，尝试在 compose 文件设置环境变量 NVR_STREAM=ZLM，重启容器试试。
+
+播放黑屏也可能是 IP 配置有误，容器内 zlm 与 owl 联系用默认 127.0.0.1 即可，收流 IP 必须填写局域网 IP。
+
+
 
 ## 文档
 
