@@ -242,7 +242,8 @@ If you're a Go developer familiar with Docker, you can download the source code 
   - [x] RTMP push streaming support
   - [x] RTSP pull streaming support
   - [x] AI algorithm analysis and alerting support
-  - [ ] Recording playback (in development...)
+  - [x] Cloud Recording playback (owl)
+  - [ ] SD Recording playback (ipc)
 
 ## Acknowledgments
 
